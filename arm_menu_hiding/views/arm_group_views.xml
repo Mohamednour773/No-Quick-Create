@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_arm_menu_group_list" model="ir.ui.view">
+        <field name="name">arm.menu.group.list</field>
+        <field name="model">arm.menu.group</field>
+        <field name="arch" type="xml">
+            <list string="Menu Hiding Groups">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="user_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_arm_menu_group_form" model="ir.ui.view">
+        <field name="name">arm.menu.group.form</field>
+        <field name="model">arm.menu.group</field>
+        <field name="arch" type="xml">
+            <form string="Menu Hiding Group">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Internal notes..."/>
+                    <notebook>
+                        <page string="Users">
+                            <field name="user_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="login"/>
+                                    <field name="company_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Hidden Menus">
+                            <field name="hidden_menu_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="menu_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_arm_menu_group" model="ir.actions.act_window">
+        <field name="name">Menu Hiding Groups</field>
+        <field name="res_model">arm.menu.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_arm_menu_root"
+              name="ARM Menu Hiding"
+              parent="base.menu_administration"
+              groups="arm_menu_hiding.group_arm_menu_manager"
+              sequence="92"/>
+    <menuitem id="menu_arm_menu_groups"
+              name="Permission Groups"
+              parent="menu_arm_menu_root"
+              action="action_arm_menu_group"
+              groups="arm_menu_hiding.group_arm_menu_manager"
+              sequence="10"/>
+</odoo>

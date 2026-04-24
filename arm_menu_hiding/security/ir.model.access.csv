@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_arm_menu_group_mgr","arm.menu.group manager","model_arm_menu_group","arm_menu_hiding.group_arm_menu_manager",1,1,1,1
+"access_arm_menu_group_line_mgr","arm.menu.group.line manager","model_arm_menu_group_line","arm_menu_hiding.group_arm_menu_manager",1,1,1,1
+"access_arm_menu_group_user","arm.menu.group user","model_arm_menu_group","base.group_user",1,0,0,0
+"access_arm_menu_group_line_user","arm.menu.group.line user","model_arm_menu_group_line","base.group_user",1,0,0,0
