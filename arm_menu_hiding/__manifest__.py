@@ -17,7 +17,7 @@ Features
 - Works with Odoo 19 native menu loading engine.
     """,
     'author': 'Mohamed Nour',
-    'price': 0.01,
+    'price': 10.0,
     'currency': 'USD',
     'license': 'OPL-1',
     'images': ['static/description/icon.svg'],
